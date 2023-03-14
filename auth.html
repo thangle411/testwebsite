@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mock Auth Server</title>
+  </head>
+  <body>
+    <img src="/panda.png" alt="" width="150" height="150" />
+    <h1>Welcome to Panda Express</h1>
+    <button id="button">Click to order</button>
+
+    <script>
+      const button = document.getElementById('button');
+      button.addEventListener('click', () => {
+        var urlParams = new URLSearchParams(window.location.search);
+        var redirectUri = urlParams.get('uri');
+        if (redirectUri) {
+          window.location.href = `/sso?uri=${redirectUri}`;
+        }
+      });
+    </script>
+  </body>
+</html>
